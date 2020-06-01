@@ -23,6 +23,8 @@ import com.example.jetnews.data.interests.InterestsRepository
 import com.example.jetnews.data.interests.impl.FakeInterestsRepository
 import com.example.jetnews.data.posts.PostsRepository
 import com.example.jetnews.data.posts.impl.FakePostsRepository
+import com.example.jetnews.ui.JetnewsWorkflow
+import com.squareup.workflow.ui.ViewRegistry
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -32,6 +34,8 @@ import java.util.concurrent.Executors
 interface AppContainer {
     val postsRepository: PostsRepository
     val interestsRepository: InterestsRepository
+    val viewRegistry: ViewRegistry
+    val appWorkflow: JetnewsWorkflow
 }
 
 /**
@@ -59,5 +63,13 @@ class AppContainerImpl(private val applicationContext: Context) : AppContainer {
 
     override val interestsRepository: InterestsRepository by lazy {
         FakeInterestsRepository()
+    }
+
+    override val viewRegistry: ViewRegistry by lazy {
+        ViewRegistry()
+    }
+
+    override val appWorkflow: JetnewsWorkflow by lazy {
+        JetnewsWorkflow()
     }
 }

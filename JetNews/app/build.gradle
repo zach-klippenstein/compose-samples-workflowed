@@ -70,6 +70,10 @@ dependencies {
     implementation('androidx.appcompat:appcompat:1.1.0')
     implementation('androidx.activity:activity-ktx:1.1.0')
     implementation "androidx.core:core-ktx:1.2.0"
+    implementation("com.squareup.workflow:workflow-core-jvm:$workflow_version")
+    implementation("com.squareup.workflow:workflow-ui-backstack-android:$workflow_version")
+    implementation("com.squareup.workflow:workflow-ui-core-android:$workflow_version")
+    implementation("com.squareup.workflow:workflow-ui-core-compose:$workflow_compose_version")
 
     androidTestImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:rules:1.2.0")

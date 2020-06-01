@@ -18,8 +18,9 @@ package com.example.jetnews.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.ui.core.setContent
 import com.example.jetnews.JetnewsApplication
+import com.squareup.workflow.ui.WorkflowRunner
+import com.squareup.workflow.ui.setContentWorkflow
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val appContainer = (application as JetnewsApplication).container
-        setContent {
-            JetnewsApp(appContainer = appContainer)
+        setContentWorkflow(appContainer.viewRegistry) {
+            WorkflowRunner.Config(appContainer.appWorkflow)
         }
     }
 }
